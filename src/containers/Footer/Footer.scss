@@ -1,0 +1,258 @@
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.app__footer-div {
+  @include flex-column;
+  width: 100%;
+  padding-bottom: 2rem;
+
+  h3 {
+    margin-top: 4rem;
+  }
+
+  //contact info div
+  .contact-div {
+    margin: 2rem 0;
+    width: 100%;
+    @include flex-row;
+    justify-content: space-around;
+
+    div {
+      @include flex-row;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 35%;
+
+      &:first-of-type {
+        background: linear-gradient(to right, #ffff, #bfe8fd);
+      }
+
+      &:last-of-type {
+        background: linear-gradient(to right, #bfe8fd, #ffff);
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--black-color);
+        margin-left: 0.25rem;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    @media screen and (max-width: 800px) {
+      @include flex-column;
+
+      div {
+        width: 90%;
+        margin: 1rem 0;
+      }
+    }
+  }
+
+  //contact form
+  .contact-form {
+    width: 90%;
+    margin: 0 auto;
+    form {
+      width: 100%;
+      @include flex-column;
+      align-items: flex-start;
+      padding: 2rem;
+      border-radius: 8px;
+
+      div.input-wrap {
+        width: 100%;
+        @include flex-column;
+        margin: 1rem 0;
+
+        div.form-field {
+          width: 100%;
+          @include flex-row;
+          flex-direction: row-reverse;
+          align-items: baseline;
+
+          & ~ p.error-text {
+            color: var(--error-color);
+            margin-top: 0.5rem;
+            align-self: flex-start;
+            margin-left: 2rem;
+          }
+
+          .iconify {
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+          }
+
+          textarea {
+            resize: none;
+            height: 14rem;
+            width: 100%;
+          }
+
+          input,
+          textarea {
+            width: 100%;
+            font-size: 1.15rem;
+            padding: 0.75rem 1rem;
+            outline: none;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: all 0.2s ease-in-out;
+            color: var(--black-color);
+          }
+
+          input::placeholder,
+          textarea::placeholder {
+            color: rgb(170, 170, 170);
+          }
+
+          input:focus,
+          textarea:focus {
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+
+            & ~ .iconify {
+              color: var(--secondary-color);
+            }
+          }
+
+          input.input-invalid,
+          textarea.input-invalid {
+            border: 2px solid var(--error-color);
+
+            & ~ .iconify {
+              color: var(--error-color);
+            }
+          }
+        }
+      }
+
+      button.submit-btn {
+        align-self: center;
+        margin: 0.5rem 0;
+        padding: 0.75rem 2rem;
+        border-radius: 8px;
+        font-size: 1rem;
+        outline: none;
+        border: 1px solid var(--secondary-color);
+        color: var(--secondary-color);
+        background-color: white;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          background-color: var(--secondary-color);
+          color: white;
+          border-color: var(--secondary-color);
+        }
+
+        &:disabled {
+          background-color: #ccc;
+          color: rgb(130, 130, 130);
+          border-color: #ccc;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    @media screen and (max-width: 800px) {
+      width: 100%;
+      form {
+        padding: 1rem;
+      }
+    }
+  }
+
+  div.thank_you {
+    @include flex-column;
+    background-color: white;
+    padding: 2rem;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    h3 {
+      margin-top: 0;
+    }
+
+    img {
+      height: 24rem;
+      width: auto;
+      object-fit: contain;
+    }
+    @media screen and (max-width: 800px) {
+      padding: 1rem;
+      width: 100%;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  div.error-div {
+    background-color: white;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    color: var(--secondary-color);
+
+    h3 {
+      margin-top: 0;
+    }
+
+    h4 {
+      font-size: 1.25rem;
+    }
+  }
+
+  div.loading {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 410vh;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    @include flex-row;
+
+    div.spinner {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      border: 10px solid var(--secondary-color);
+      border-color: var(--secondary-color) transparent var(--secondary-color)
+        transparent;
+      animation: 1.2s spin linear infinite;
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+}
