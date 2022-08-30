@@ -5,7 +5,6 @@ import git from "../assets/git.png";
 import html from "../assets/html.png";
 import javascript from "../assets/javascript.png";
 import node from "../assets/node.png";
-import profile from "../assets/profile.png";
 import react from "../assets/react.png";
 import redux from "../assets/redux.png";
 import sass from "../assets/sass.png";
@@ -18,6 +17,7 @@ import socket from "../assets/socket.png";
 import phone from "../assets/phone.png";
 import mail from "../assets/mail.png";
 import thankYou from "../assets/thankYou.png";
+import profilePic from "../assets/profile-pic.png";
 
 export const images = {
   bgIMG,
@@ -27,7 +27,6 @@ export const images = {
   html,
   javascript,
   node,
-  profile,
   react,
   redux,
   sass,
@@ -40,4 +39,5 @@ export const images = {
   phone,
   mail,
   thankYou,
+  profilePic,
 };

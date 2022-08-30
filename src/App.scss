@@ -1,6 +1,7 @@
 :root {
   --font-base: "Poppins", sans-serif;
   --primary-color: #edf2f8;
+  --lightBlue-color: rgba(62, 100, 255, 0.1);
   --secondary-color: #313bac;
   --black-color: #030303;
   --lightGray-color: #e4e4e4;
@@ -52,11 +53,6 @@
   width: 100%;
   flex-direction: column;
   // padding: 4rem 2rem;
-
-  // @media screen and (max-width: 450px) {
-  //   padding: 4rem 1rem 2rem;
-  // }
-  // margin: auto 0;
 
   // &:first-child {
   //   margin-top: 0;

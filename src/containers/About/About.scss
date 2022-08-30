@@ -1,42 +1,77 @@
 .app__about-div {
-  margin: 1rem auto;
+  margin-top: 1rem;
   width: 95%;
   height: 100%;
-  max-height: fit-content;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  background-color: white;
-  margin-top: calc(100vh - 85vh);
+  background-color: var(--white-color);
+
+  @media screen and (min-width: 700px) {
+    margin-top: 4rem;
+  }
 
   @media screen and (max-width: 700px) {
     flex-direction: column;
     align-items: flex-start;
-    height: 100vh;
-    margin-top: calc(100vh - 95vh);
+    margin: 1rem 0;
   }
 
   .app__about-img {
-    // border: 1px solid green;
+    position: relative;
     width: 45%;
     height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
 
-    img {
-      width: 75%;
-      height: 75%;
-      object-fit: contain;
+    .app__about-img-animationBG {
+      position: absolute;
+      border-radius: 50%;
+      width: 20rem;
+      height: 20rem;
+      z-index: 1;
+      background-color: var(--lightBlue-color);
+
+      @media screen and (max-width: 1040px) {
+        width: 15rem;
+        height: 15rem;
+        top: 2.5rem;
+      }
+
+      @media screen and (max-width: 900px) {
+        width: 12rem;
+        height: 12rem;
+        top: 5.5rem;
+      }
 
       @media screen and (max-width: 700px) {
-        object-fit: contain;
-        width: 100%;
-        height: 100%;
+        width: 15rem;
+        height: 15rem;
+        top: -1.5rem;
       }
     }
-    @media screen and (max-width: 700px) {
+    img {
+      position: absolute;
+      width: 45%;
       height: 45%;
+      object-fit: contain;
+      z-index: 2;
+
+      @media screen and (max-width: 700px) {
+        position: relative;
+        height: 12rem;
+        width: 12rem;
+        // display: none;
+      }
+    }
+
+    @media screen and (max-width: 700px) {
+      height: 100%;
       width: 100%;
-      // display: none;
+      margin-top: 1rem;
     }
   }
 
@@ -44,19 +79,16 @@
     margin: 0.5rem 0.5rem 0.5rem 2rem;
     width: 55%;
     height: 100%;
-    // border: 1px solid red;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     text-align: left;
 
     @media screen and (max-width: 700px) {
-      margin-left: 0;
-    }
-
-    h2 {
-      border-bottom: 4px solid var(--secondary-color);
+      margin: 0 auto;
+      margin-top: 3rem;
+      width: 90%;
     }
 
     .app__about-info-info {
@@ -68,6 +100,7 @@
       flex-direction: column;
       justify-content: space-between;
       align-items: flex-start;
+      row-gap: 1rem;
 
       span {
         width: 100%;
@@ -83,10 +116,53 @@
           font-size: 1.25rem;
         }
 
-        p {
+        a {
           color: var(--gray-color);
+          border-bottom: 2px solid var(--gray-color);
           font-weight: normal;
           font-size: 1.15rem;
+          text-decoration: none;
+          transition: all 0.2s ease-in-out;
+          .iconify {
+            color: inherit;
+          }
+
+          &:hover {
+            color: var(--secondary-color);
+            border-bottom-color: var(--secondary-color);
+          }
+        }
+
+        ul {
+          width: 100%;
+          li {
+            color: var(--gray-color);
+            font-weight: normal;
+            font-size: 1.15rem;
+          }
+        }
+
+        ul.hobbies-list,
+        ul.achievements-list {
+          display: flex;
+          li {
+            flex: 1;
+          }
+          @media screen and (max-width: 700px) {
+            flex-direction: column;
+            margin-left: 1rem;
+            width: auto;
+          }
+        }
+      }
+
+      span.resumeLink {
+        display: flex;
+        justify-content: flex-end;
+
+        @media screen and (max-width: 450px) {
+          width: 100%;
+          justify-content: flex-end;
         }
       }
     }
